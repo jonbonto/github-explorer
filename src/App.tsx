@@ -1,12 +1,12 @@
 import { Container } from "react-bootstrap";
-import SearchBar from "./components/SearchBar";
-import UserAccordion from "./components/UserAccordion";
+import SearchContainer from "./containers/SearchContainer";
+import UserContainer from "./containers/UserContainer";
 
 export default function App() {
   return (
     <Container className="p-4">
-      <SearchBar />
-      <UserAccordion />
+      <SearchContainer />
+      <UserContainer />
     </Container>
   );
 }

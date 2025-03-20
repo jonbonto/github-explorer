@@ -1,14 +1,17 @@
 import { ListGroup, Spinner } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { RootState } from "../store/store";
 
-interface Props {
-  username: string;
+interface Repo {
+  name: string;
+  html_url: string;
+  description: string;
+  stargazers_count: number;
 }
 
-export default function RepositoryList({ username }: Props) {
-  const repos = useSelector((state: RootState) => state.github.repos[username]);
+interface Props {
+  repos?: Repo[]; // Optional because it may be undefined initially
+}
 
+export default function RepositoryList({ repos }: Props) {
   if (!repos) return <Spinner animation="border" size="sm" />;
 
   return (
