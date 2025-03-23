@@ -1,12 +1,13 @@
+import { useSelector } from "react-redux";
 import RepositoryList from "../components/RepositoryList";
-import { useGitHub } from "../hooks/useGitHub";
+import { RootState } from "../store/store";
 
 interface Props {
   username: string;
 }
 
 export default function RepositoryListContainer({ username }: Props) {
-  const { repos } = useGitHub();
+  const repos = useSelector((state: RootState) => state.github.repos[username] || []); 
 
-  return <RepositoryList repos={repos[username]} />;
+  return <RepositoryList repos={repos} />;
 }
